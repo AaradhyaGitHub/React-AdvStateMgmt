@@ -69,7 +69,7 @@ function App() {
 
   return (
     // CartContext.Provider for older versions
-    <CartContext>
+    <CartContext value={{items: []}}>
       {/*
           All these components need to use this context. 
 

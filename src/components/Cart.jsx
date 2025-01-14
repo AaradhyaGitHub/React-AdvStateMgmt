@@ -1,4 +1,34 @@
-export default function Cart({ items, onUpdateItemQuantity }) {
+import { useContext, use } from "react";
+import { CartContext } from "../store/shopping-cart-context";
+export default function Cart({onUpdateItemQuantity }) {
+  // if you do this: 
+  // const cartCtx = useContext(CartContext);
+  // then you have to use cartCtx.item 
+
+  // if you destruct, you can just use item:
+  // const {item} = useContext{CartContext}
+  const {items} = useContext(CartContext);
+  {
+    /*
+  you can use import useContext and use it as such:
+  const cartCtx = useContext(CartContext);
+
+  OR 
+
+  you can import use and use it as such:
+  const cartCtx = use(CartContext);
+
+  Which one to use? 
+
+  use hook  is a littl more flexible: 
+    -> It can only be used inside reach components 
+    -> It can be use inside an If statement 
+    -> Normally you can't use react hooks in loops or conditional statememnts 
+    -> this can't be accomplished with useContext 
+    -> use is only available with React v.19. If not, use useContext 
+  */
+  }
+
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
