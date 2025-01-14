@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import Header from "./components/Header.jsx";
 import Shop from "./components/Shop.jsx";
-import Product from './components/Product.jsx'
+import Product from "./components/Product.jsx";
 import { DUMMY_PRODUCTS } from "./dummy-products.js";
+import { CartContext } from "./store/shopping-cart-context.jsx";
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState({
@@ -67,7 +68,16 @@ function App() {
   }
 
   return (
-    <>
+    // CartContext.Provider for older versions
+    <CartContext>
+      {/*
+          All these components need to use this context. 
+
+          Header -> 
+          Shop ->
+          Product -> Change value of our context because it needs to update the items array  
+    */}
+
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
@@ -79,7 +89,7 @@ function App() {
           </li>
         ))}
       </Shop>
-    </>
+    </CartContext>
   );
 }
 

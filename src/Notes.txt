@@ -1,0 +1,11 @@
+Component Composition helps but not always 
+
+Intro To React's Context API 
+- Built into React 
+- Data Sharing is simplified across components 
+
+The Main Idea: 
+- Create a context value 
+- and you wrap this context around multiple components maybe even all components 
+- Can be easily connected to the state 
+- Eliminates props, passing states/ state updating functions 
