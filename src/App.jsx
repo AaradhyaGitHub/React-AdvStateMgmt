@@ -67,9 +67,20 @@ function App() {
     });
   }
 
+  //these are the values we want to share 
+  
+  const ctxValue = {
+    items: shoppingCart.items,
+    addItemsToCart: handleAddItemToCart
+  }
+  // we are exposing the handleAddItemToCart 
+  // any component wrapped by CartContext or a child of it, can call handleAddItemToCart
   return (
     // CartContext.Provider for older versions
-    <CartContext value={{items: []}}>
+
+    //setting value to shoppingCart is still passing props and promoting props drilling 
+    //we want to use context for reading and updating the value which is why we create a object ctxValue
+    <CartContext value={ctxValue}>
       {/*
           All these components need to use this context. 
 

@@ -8,5 +8,7 @@ import { createContext } from "react";
 //just like useState, the argument will be the initial value, it can be any value 
 //here we'll go for an object 
 export const CartContext = createContext({
-    items: []
+    //setting this here helps with auto complete 
+    items: [],
+    addItemToCart: () => {}, 
 });
